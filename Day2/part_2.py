@@ -14,19 +14,19 @@ def valid_pwds(fn: str) -> int:
 
 def valid_pwd(l: str) -> bool:
 
-    [a, b, pwd] = l.split()
+    a, b, pwd = l.split()
 
-    [pos_1, pos_2] = a.split('-')
+    pos_1, pos_2 = a.split('-')
 
-    pos_1 = int(pos_1)
-    pos_2 = int(pos_2)
+    idx_1 = int(pos_1)-1
+    idx_2 = int(pos_2)-1
 
     char = b[0]
 
-    pos_1_valid = pwd[pos_1-1] == char
-    pos_2_valid = pwd[pos_2-1] == char
+    char_1_valid = pwd[idx_1] == char
+    char_2_valid = pwd[idx_2] == char
     
-    return True if pos_1_valid ^ pos_2_valid else False
+    return True if char_1_valid ^ char_2_valid else False
 
 class Test(unittest.TestCase):
 
@@ -40,8 +40,9 @@ if __name__ == '__main__':
 
    n = valid_pwds('input.txt')
    print(f'{n} passwords are valid')
-
    unittest.main()
+
+
 
    
 
