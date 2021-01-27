@@ -13,14 +13,7 @@ def part1(lines: list) -> int:
 def part2(lines: list) -> int:
 
     group_strings = [g.split('\n') for g in ''.join(lines).split('\n\n')]
-    group_sets = [strings_to_sets(g) for g in group_strings]
-    questions = [set.intersection(*g) for g in group_sets]
-    return sum([len(q) for q in questions])
-
-
-def strings_to_sets(strings: list) -> list:
-
-    return [set(string) for string in strings]
+    return sum([len(set.intersection(*map(set, g))) for g in group_strings])
 
 
 if __name__ == '__main__':
