@@ -2,8 +2,6 @@
 
 ''' https://adventofcode.com/2020/day/6 '''
 
-import unittest
-
 
 def part1(lines: list) -> int:
     
