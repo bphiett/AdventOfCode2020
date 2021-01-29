@@ -34,16 +34,16 @@ def part2(ops: list[str], args: list[int]) -> int:
 
         if op == 'nop':
             ops[idx] = 'jmp'
-            i, a = part1(ops, args)
+            i, acc = part1(ops, args)
             ops[idx] = 'nop'
             if i == len(ops):
-                return a
+                return acc
         elif op == 'jmp':
             ops[idx] = 'nop'
-            i, a = part1(ops, args)
+            i, acc = part1(ops, args)
             ops[idx] = 'jmp'
             if i == len(ops):
-                return a
+                return acc
 
             
 class Test(unittest.TestCase):
