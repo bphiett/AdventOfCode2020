@@ -14,9 +14,12 @@ def part1(data: list[int], n: int) -> int:
         if data[i] not in combs:
             return data[i]
         
-def part2(data: list[int]) -> int:
+def part2(data: list[int], target: int) -> int:
 
-    pass
+    for i in range(len(data)):
+        for j in range(i, len(data)):
+            if sum(data[i:j]) == target:
+                return min(data[i:j]) + max(data[i:j])
 
             
 class Test(unittest.TestCase):
@@ -46,7 +49,7 @@ class Test(unittest.TestCase):
                 576]
         
         self.assertEqual(part1(data, 5), 127)
-        # self.assertEqual(part2(ops, args), 8)
+        self.assertEqual(part2(data, 127), 62)
 
 
 if __name__ == '__main__':
@@ -56,7 +59,7 @@ if __name__ == '__main__':
     data = [int(line.strip()) for line in data]
     
     print(f'Part 1 = {part1(data, 25)}')
-    # print(f'Part 2 = {part2(data, 25)}')    
+    print(f'Part 2 = {part2(data, 1930745883)}')    
  
     unittest.main()
 
